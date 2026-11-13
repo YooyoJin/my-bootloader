@@ -1,0 +1,34 @@
+{
+    "files.encoding": "utf8",
+
+    // armgcc工程: 交叉编译HC32F460 bootloader
+    "cmake.sourceDirectory": "${workspaceFolder}/projects/armgcc",
+    "cmake.buildDirectory":  "${workspaceFolder}/projects/armgcc/build",
+    "cmake.generator": "MinGW Makefiles",
+
+    // 关键: 让插件配置时带上交叉工具链文件。
+    // 否则CMake按本机Windows工程测链接(--major-image-version), arm链接器必报错
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "${workspaceFolder}/projects/armgcc/toolchain.cmake"
+    },
+
+    // clangd负责代码分析(读gcc生成的compile_commands.json), ms-cpp仅做头文件关联
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/projects/armgcc/build",
+        "--background-index",
+        "--header-insertion=never"
+    ],
+
+    // 告诉VSCode这些文件当C语言处理, 不然头文件可能被当成C++处理
+    "files.associations": { "*.h": "c" },
+
+    // 把构建垃圾挡在搜索结果之外
+    "search.exclude": {
+        "**/build*/**": true,
+        "**/Objects/**": true,
+        "**/Listings/**": true
+    },
+
+    "cortex-debug.variableUseNaturalFormat": true
+}

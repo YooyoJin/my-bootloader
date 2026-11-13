@@ -1,0 +1,19 @@
+{
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug (JLink)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "jlink",
+            "device": "HC32F460xE", // 按实际芯片型号填写
+            "interface": "swd",
+            "cwd": "${workspaceRoot}/projects/armgcc/build",
+            "executable": "bootloader.elf",
+            "runToEntryPoint": "main",
+            "preLaunchTask": "cmake build",
+            "gdbPath": "E:/Program Files/arm-gnu-toolchain-13.2.Rel1-mingw-w64-i686-arm-none-eabi/bin/arm-none-eabi-gdb.exe"
+        }
+    ]
+}

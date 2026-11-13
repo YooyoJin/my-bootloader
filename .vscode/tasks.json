@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "cmake build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/projects/armgcc/build"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Start RTT Viewer",
+            "type": "process",
+            "command": "C://Program Files//SEGGER//JLink//JLinkRTTViewer.exe",
+            "args": [
+                "-device", "HC32F460XE",
+                "-if", "SWD",                   // 接口类型：SWD/JTAG
+                "-speed", "4000",               // 速度：4000 kHz
+                "-autoconnect", "1",            // 自动连接
+                "-rttaddress", "0x20000000-0x2000FFFF"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}
