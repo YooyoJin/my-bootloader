@@ -11,10 +11,9 @@
  */
 void JumpToApp(uint32_t u32AppAddr)
 {
-    uint32_t u32AppSp = *(volatile uint32_t *)u32AppAddr;        // 1. 拿APP的堆栈指针
-    uint32_t u32AppPc = *(volatile uint32_t *)(u32AppAddr + 4u); // 2. 拿APP的复位向量
+    uint32_t u32AppSp = *(volatile uint32_t *)u32AppAddr;         // 1. 拿APP的堆栈指针
+    uint32_t u32AppPc = *(volatile uint32_t *)(u32AppAddr + 4u);  // 2. 拿APP的复位向量
     void (*pfnAppReset)(void) = (void (*)(void))u32AppPc;
-
-    __set_MSP(u32AppSp);   // 3. 设主堆栈
-    pfnAppReset();         // 4. 跳!
+    __set_MSP(u32AppSp);  // 3. 设主堆栈
+    pfnAppReset();  // 4. 跳!
 }

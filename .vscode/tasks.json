@@ -24,7 +24,7 @@
                 "-if", "SWD",                   // 接口类型：SWD/JTAG
                 "-speed", "4000",               // 速度：4000 kHz
                 "-autoconnect", "1",            // 自动连接
-                "-rttaddress", "0x20000000-0x2000FFFF"
+                "-rttaddress", "0x1FFF8000-0x20027000"
             ],
             "presentation": {
                 "echo": true,

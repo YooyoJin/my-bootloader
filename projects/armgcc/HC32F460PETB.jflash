@@ -3,7 +3,7 @@
 [GENERAL]
   aATEModuleSel[24] = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
   ConnectMode = 0
-  CurrentFile = "E:\MyWorkspace\Project\other\blog\my-bootloader\projects\armgcc\build\bootloader.hex"
+  CurrentFile = "E:\MyWorkspace\Project\20260715HeatPump\HD_oneboard1_base2\HD-base1-v2.2 _KeLanTe\生产文档\高而美\16kW单直流增焓_R290\Target.hex"
   DataFileSAddr = 0x00000000
   GUIMode = 0
   HostName = ""

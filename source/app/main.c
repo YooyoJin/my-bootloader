@@ -35,9 +35,10 @@ static void SystemInitAll(void)
 int main(void)
 {
     SystemInitAll();
-    LOG_ERROR("SystemCoreClock: %uHz", SystemCoreClock);
-    LOG_ERROR("Boot V0.1");
-    LOG_ERROR("->BOOT");
+    LOG_INFO("SystemCoreClock: %uHz", SystemCoreClock);
+    LOG_INFO("Boot v0.1.1");
+    LOG_INFO("->Boot");
+    // v0.1.0 Boot首版本
 
     // todo 防空验证: APP区栈顶为0xFFFFFFFF说明无有效固件, 停在此处防生产事故
     // if (0xFFFFFFFFu == *(volatile uint32_t *)BOOT_APP_START_ADDR) { while (1) {} }

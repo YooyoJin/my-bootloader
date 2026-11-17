@@ -32,7 +32,7 @@ typedef enum
 
 // ---------------- 配置区 ----------------
 #define LOG_ENABLE     1              // 发布版本置0, 全部日志编译期移除
-#define LOG_SHOW_LEVEL LogLevelError  // 运行时显示的最高级别(bootloader保持ERROR)
+#define LOG_SHOW_LEVEL LogLevelInfo  // 运行时显示的最高级别(bootloader保持ERROR)
 // ----------------------------------------
 
 #if LOG_ENABLE
