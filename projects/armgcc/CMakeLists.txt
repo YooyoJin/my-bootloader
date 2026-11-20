@@ -13,7 +13,7 @@ set(CHIP    hc32f460)
 # MCU 编译/链接参数(Cortex-M4F, 与my-libs工程一致)
 # ----------------------------------------------------------------------------
 set(MCU_FLAGS -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard)
-add_compile_options(${MCU_FLAGS} -ffunction-sections -fdata-sections -g -O0)
+add_compile_options(${MCU_FLAGS} -ffunction-sections -fdata-sections -g -Og)  # -Og: 16KB FLASH约束下与华大原工程优化级别一致
 add_compile_definitions(HC32F460 USE_DDL_DRIVER DEBUG)
 set(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -x assembler-with-cpp")
 

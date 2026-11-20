@@ -2,7 +2,7 @@
  * @file    bspdelay.c
  * @brief   毫秒/微秒延时实现(BSP层)
  * @note    移植自My-OTA工程bsp_delay.c; 改用LL库SysTick_GetTick()
- *          消除了原版对app层AppTimerGetTick的逆向依赖(port不得依赖app)
+ *          消除了原版对app层TimerGetTick的逆向依赖(port不得依赖app)
  */
 #include "bspdelay.h"
 #include "hc32_ll_utility.h"

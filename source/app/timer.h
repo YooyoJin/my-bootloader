@@ -1,11 +1,11 @@
 /**
- * @file    apptimer.h
+ * @file    timer.h
  * @brief   前后台版时间片调度+SysTick中断(归app层所有)
  * @note    SysTick是调度资源——本bootloader在此拥有;
  *          跳转APP后由APP固件自行重新初始化
  */
-#ifndef APPTIMER_H
-#define APPTIMER_H
+#ifndef TIMER_H
+#define TIMER_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -21,23 +21,23 @@ extern "C" {
  */
 #define MEASURE_FUNC_TIME_MS(func, funcName)             \
     do {                                                 \
-        uint32_t u32Start = AppTimerGetTick();           \
+        uint32_t u32Start = TimerGetTick();              \
         func;                                            \
-        uint32_t u32Exec = AppTimerGetTick() - u32Start; \
+        uint32_t u32Exec = TimerGetTick() - u32Start;    \
         LOG_DEBUG("[%s] execution time: %u ms", funcName, u32Exec); \
     } while (0)
 
 /** @brief 时间片调度初始化(初始化SysTick 1ms) */
-void AppTimerInit(void);
+void TimerInit(void);
 
 /** @brief 时间片任务调度, 主循环里反复调用 */
-void AppTimerTaskRun(void);
+void TimerTaskRun(void);
 
 /** @brief 获取系统毫秒节拍 */
-uint32_t AppTimerGetTick(void);
+uint32_t TimerGetTick(void);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // APPTIMER_H
+#endif // TIMER_H

@@ -1,6 +1,6 @@
 /**
  * @file    jumpapp.c
- * @brief   跳转APP实现: 取APP栈顶/复位向量→设MSP→跳转
+ * @brief   跳转APP实现: 取APP栈顶/复位向量→设MSP→设VTOR→跳转
  */
 #include "jumpapp.h"
 #include "hc32_ll.h"
@@ -14,6 +14,8 @@ void JumpToApp(uint32_t u32AppAddr)
     uint32_t u32AppSp = *(volatile uint32_t *)u32AppAddr;         // 1. 拿APP的堆栈指针
     uint32_t u32AppPc = *(volatile uint32_t *)(u32AppAddr + 4u);  // 2. 拿APP的复位向量
     void (*pfnAppReset)(void) = (void (*)(void))u32AppPc;
-    __set_MSP(u32AppSp);  // 3. 设主堆栈
-    pfnAppReset();  // 4. 跳!
+
+    __set_MSP(u32AppSp);     // 3. 设主堆栈
+    SCB->VTOR = u32AppAddr;  // 4. 中断向量表重定位到APP区(对齐华大工程跳转行为)
+    pfnAppReset();           // 5. 跳!
 }

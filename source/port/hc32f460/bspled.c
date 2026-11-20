@@ -5,7 +5,7 @@
  */
 #include "bspled.h"
 #include "bspdelay.h"
-#include "bspboardtype.h"
+#include "bsppinmap.h"
 #include "hc32_ll_gpio.h"
 
 static BspGpioPin_T g_stStatusLed;

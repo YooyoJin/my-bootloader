@@ -4,7 +4,7 @@
  * @note    移植自My-OTA工程bsp_clk.c, 逻辑未改动
  */
 #include "log.h"
-#include "bspboardtype.h"
+#include "bsppinmap.h"
 #include "bspclk.h"
 #include "hc32_ll_clk.h"
 #include "hc32_ll_gpio.h"

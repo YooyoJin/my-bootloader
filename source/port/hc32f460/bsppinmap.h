@@ -1,7 +1,7 @@
 /**
  *******************************************************************************
- * @file  bsp_board_type.h
- * @brief This file contains the BSP layer board pin definition types.
+ * @file  bsppinmap.h
+ * @brief BSP层板级引脚映射定义(各外设端口/引脚宏集中于此)
  @verbatim
    Change Logs:
    Date             Author          Notes
@@ -9,8 +9,8 @@
  @endverbatim
  *******************************************************************************
  */
-#ifndef __BSP_BOARD_TYPE_H__
-#define __BSP_BOARD_TYPE_H__
+#ifndef __BSP_PINMAP_H__
+#define __BSP_PINMAP_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -56,6 +56,16 @@ typedef struct {
 #define BSP_LED3_PIN                      EMPTY
 #define BSP_LED4_PORT                     EMPTY
 #define BSP_LED4_PIN                      EMPTY
+
+// 外部SPI Flash (GPIO模拟SPI, W25Qxx)
+#define BSP_EXFLASH_CS_PORT               GPIO_PORT_H
+#define BSP_EXFLASH_CS_PIN                GPIO_PIN_02
+#define BSP_EXFLASH_SCK_PORT              GPIO_PORT_E
+#define BSP_EXFLASH_SCK_PIN               GPIO_PIN_06
+#define BSP_EXFLASH_MOSI_PORT             GPIO_PORT_E
+#define BSP_EXFLASH_MOSI_PIN              GPIO_PIN_05
+#define BSP_EXFLASH_MISO_PORT             GPIO_PORT_E
+#define BSP_EXFLASH_MISO_PIN              GPIO_PIN_04
 
 // 485
 // UART1-485PC(A1B1)
@@ -201,4 +211,4 @@ typedef struct {
 }
 #endif
 
-#endif /* __BSP_BOARD_TYPE_H__ */
+#endif /* __BSP_PINMAP_H__ */
